@@ -19,6 +19,8 @@ Steps in deploying a LAMP STACK using AWS EC2 instance:
 - Access via the internent using:
 + http://<Public-IP-Address>:80  (Public-IP-Address>:80)
 ![image](https://user-images.githubusercontent.com/40290711/115018503-d67e5100-9eaf-11eb-896c-d52f25d63dea.png)
+    
+ ![project1](https://user-images.githubusercontent.com/40290711/115021441-ded88b00-9eb3-11eb-9098-44ec65832747.PNG)
 - Installing MySQL
 - using ‘apt’ to acquire and install this software:
 + sudo apt install mysql-server
