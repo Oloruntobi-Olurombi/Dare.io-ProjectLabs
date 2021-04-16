@@ -94,10 +94,10 @@ Then:
 - Create a new file named index.php inside your custom web root folder:
 $ vim /var/www/projectlamp/index.php
 - This will open a blank file. Add the following text, which is valid PHP code, inside the file:
-/*
+
 <?php
 phpinfo();
-*/
+
 ![project1](https://user-images.githubusercontent.com/40290711/115021441-ded88b00-9eb3-11eb-9098-44ec65832747.PNG)
 - After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server. You can use rm to do so:
 + $ sudo rm /var/www/projectlamp/index.ph
