@@ -102,7 +102,10 @@ Then:
 $ vim /var/www/projectlamp/index.php
 
 - This will open a blank file. Add the following text, which is valid PHP code, inside the file:
-
+/*
 <?php
 phpinfo();
+*/
+
+
 
