@@ -56,17 +56,23 @@ You can use the ls command to show the new file in the sites-available directory
 $ sudo ls /etc/apache2/sites-available
 You will see something like this
 000-default.conf  default-ssl.conf  projectlamp.conf
+    
 -You can now use a2ensite command to enable the new virtual host:
+
 $ sudo a2ensite projectlamp  
 To disable Apache’s default website use a2dissite command , type:
+
 $ sudo a2dissite 000-default
 To make sure your configuration file doesn’t contain syntax errors, run:
+
 $ sudo apache2ctl configtest
 Finally, reload Apache so these changes take effect:
+
 $ sudo systemctl reload apache2
  Create an index.html file in that location so that we can test that the virtual host works as expected:
 sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
 Now go to your browser and try to open your website URL using IP address:
+
 http://<Public-IP-Address>:80
 - Enable PHP on the website
 - In case you want to change this behavior, you’ll need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order in which the index.php file is listed within the DirectoryIndex directive:
@@ -81,6 +87,7 @@ http://<Public-IP-Address>:80
 Then:
 + :wq (Write and quite)
 - reload Apache so the changes take effect:
+- 
 + $ sudo systemctl reload apache2
 - Create a new file named index.php inside your custom web root folder:
 $ vim /var/www/projectlamp/index.php
