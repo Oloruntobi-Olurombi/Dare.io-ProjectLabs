@@ -94,10 +94,8 @@ sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/met
 $ nano /var/www/projectLEMP/info.php
 
 Type the following lines into the new file. This is valid PHP code that will return information about your server:
-
 <?php
 phpinfo();
-
 - Visiting the domain name or public IP address you’ve set up in your Nginx configuration file, followed by /info.php:
 - ![project2f](https://user-images.githubusercontent.com/40290711/115116377-123d1780-9f91-11eb-806c-b1c72ebd3968.PNG)
 
