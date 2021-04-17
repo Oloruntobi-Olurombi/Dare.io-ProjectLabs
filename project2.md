@@ -10,3 +10,7 @@
 + $ sudo systemctl status nginx
 
 ![project2a](https://user-images.githubusercontent.com/40290711/115115269-6fce6580-9f8b-11eb-9efc-0ff0e2408553.PNG)
+
+- Create a new inbound rule (HTTP : 80) in the security group section. 
+- Check out server locally in Ubuntu shell, run:
++ $ curl http://localhost:80 
