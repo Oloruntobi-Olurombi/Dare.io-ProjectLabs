@@ -14,3 +14,5 @@
 - Create a new inbound rule (HTTP : 80) in the security group section. 
 - Check out server locally in Ubuntu shell, run:
 + $ curl http://localhost:80 
+
+![project2b](https://user-images.githubusercontent.com/40290711/115115486-9a6cee00-9f8c-11eb-9be0-408ab046af41.PNG)
