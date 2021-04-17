@@ -99,4 +99,93 @@ phpinfo();
 - Visiting the domain name or public IP address you’ve set up in your Nginx configuration file, followed by /info.php:
 - ![project2f](https://user-images.githubusercontent.com/40290711/115116377-123d1780-9f91-11eb-806c-b1c72ebd3968.PNG)
 
+- Retrieving data from MySQL database with PHP
++First, connect to the MySQL console using the root account:
+
+$ sudo mysql
+
+- To create a new database, run the following command from your MySQL console:
+mysql> CREATE DATABASE `example_database`; 
+
+- creates a new user and password:
+mysql>  CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
+
+- Give this user permission: 
+mysql> GRANT ALL ON example_database.* TO 'example_user'@'%';
+
+- Now exit the MySQL shell with:
+mysql> exit
+
+- You can test if the new user has the proper permissions:
+$ mysql -u example_user -p
+
+- Confirm that you have access to the example_database database:
+mysql> SHOW DATABASES;
+
+- Create a test table named todo_list:
+CREATE TABLE example_database.todo_list (
+mysql>     item_id INT AUTO_INCREMENT,
+mysql>     content VARCHAR(255),
+mysql>     PRIMARY KEY(item_id)
+mysql> );
+
+- Insert row into table:
+mysql> INSERT INTO example_database.todo_list (content) VALUES ("My first important item");
+
+-To confirm that the data was successfully saved to your table, run:
+mysql>  SELECT * FROM example_database.todo_list;
+
+-Exit the MySQL console:
+mysql> exit
+
+-Create a new PHP file in your custom web root directory:
+$ nano /var/www/projectLEMP/todo_list.php
+
+-Copy this content into your todo_list.php script:
+
+<?php
+$user = "example_user";
+$password = "password";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+
+- Save and close:
+- Cntrl + x
+
+-Visiting the domain name or public IP address configured for your website, followed by /todo_list.php:
+
+http://<Public_domain_or_IP>/todo_list.php
+
+![project2g](https://user-images.githubusercontent.com/40290711/115116989-5c73c800-9f94-11eb-9ac9-df382a38796b.PNG)
+
+
+
+
+![project2h](https://user-images.githubusercontent.com/40290711/115117002-685f8a00-9f94-11eb-9350-8475672aaf99.PNG)
+
+
+
+![project2i](https://user-images.githubusercontent.com/40290711/115117010-72818880-9f94-11eb-98e7-039fb681b97a.PNG)
+
+
+
+![project2j](https://user-images.githubusercontent.com/40290711/115117013-7d3c1d80-9f94-11eb-9b17-1b6749c4f463.PNG)
+
+
+
+![project2k](https://user-images.githubusercontent.com/40290711/115117025-83ca9500-9f94-11eb-8a5d-122011e34689.PNG)
+
+
 
