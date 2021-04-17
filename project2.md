@@ -16,3 +16,11 @@
 + $ curl http://localhost:80 
 
 ![project2b](https://user-images.githubusercontent.com/40290711/115115486-9a6cee00-9f8c-11eb-9be0-408ab046af41.PNG)
+
+- Nginx server can respond to requests from the Internet:
+(http://<Public-IP-Address>:80)
+
+- Installing MySQL:
++ $ sudo apt install mysql-server 
+- This following script will remove some insecure default settings and lock down access to database system:
++ sudo mysql_secure_installation
