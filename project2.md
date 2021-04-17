@@ -66,3 +66,39 @@ server {
 
 }
 
+- Activate configuration by linking to the config file from Nginx’s sites-enabled directory:
+
+$ sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/
+
+- This will tell Nginx to use the configuration next time it is reloaded. You can test your configuration for syntax errors by typing:
+
+$ sudo nginx -t
+You shall see following message:
+
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+If any errors are reported, go back to your configuration file to review its contents before continuing.
+
+We also need to disable default Nginx host that is currently configured to listen on port 80, for this run:
+
+sudo unlink /etc/nginx/sites-enabled/default
+When you are ready, reload Nginx to apply the changes:
+
+$ sudo systemctl reload nginx
+
+- Create an index.html file in that location so that we can test that your new server block works as expected:
+
+sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html
+
+- Testing PHP with Nginx:
+$ nano /var/www/projectLEMP/info.php
+
+Type the following lines into the new file. This is valid PHP code that will return information about your server:
+
+<?php
+phpinfo();
+
+- Visiting the domain name or public IP address you’ve set up in your Nginx configuration file, followed by /info.php:
+- ![project2f](https://user-images.githubusercontent.com/40290711/115116377-123d1780-9f91-11eb-806c-b1c72ebd3968.PNG)
+
+
