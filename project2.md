@@ -22,5 +22,6 @@
 
 - Installing MySQL:
 + $ sudo apt install mysql-server 
+
 - This following script will remove some insecure default settings and lock down access to database system:
 + sudo mysql_secure_installation
