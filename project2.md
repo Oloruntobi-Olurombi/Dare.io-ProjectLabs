@@ -26,3 +26,43 @@
 
 - This following script will remove some insecure default settings and lock down access to database system:
 + sudo mysql_secure_installation
+
+- Installing PHP:
++ sudo apt install php-fpm php-mysql
+
+-  Configuring Nginx to Use PHP Processor:
+-Create the root web directory for your_domain as follows:
+$ sudo mkdir /var/www/projectLEMP  
+
+- Assign ownership of the directory with the $USER environment variable, which will reference current system user:
+$ sudo chown -R $USER:$USER /var/www/projectLEMP
+
+- Open a new configuration file in Nginx’s sites-available directory using preferred command-line editor. Here, we’ll use nano:
+
+$ sudo nano /etc/nginx/sites-available/projectLEMP
+This will create a new blank file. Paste in the following bare-bones configuration:
+
+#/etc/nginx/sites-available/projectLEMP
+
+server {
+    listen 80;
+    server_name projectLEMP www.projectLEMP;
+    root /var/www/projectLEMP;
+
+    index index.html index.htm index.php;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+     }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+}
+
