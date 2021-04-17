@@ -168,24 +168,12 @@ try {
 
 http://<Public_domain_or_IP>/todo_list.php
 
-![project2g](https://user-images.githubusercontent.com/40290711/115116989-5c73c800-9f94-11eb-9ac9-df382a38796b.PNG)
-
-
-
-
-![project2h](https://user-images.githubusercontent.com/40290711/115117002-685f8a00-9f94-11eb-9350-8475672aaf99.PNG)
-
-
-
-![project2i](https://user-images.githubusercontent.com/40290711/115117010-72818880-9f94-11eb-98e7-039fb681b97a.PNG)
-
-
-
-![project2j](https://user-images.githubusercontent.com/40290711/115117013-7d3c1d80-9f94-11eb-9b17-1b6749c4f463.PNG)
-
-
-
-![project2k](https://user-images.githubusercontent.com/40290711/115117025-83ca9500-9f94-11eb-8a5d-122011e34689.PNG)
+![project2f](https://user-images.githubusercontent.com/40290711/115117064-b4aaca00-9f94-11eb-84ba-d0c53a01068a.PNG)
+![project2g](https://user-images.githubusercontent.com/40290711/115117073-bb394180-9f94-11eb-975d-bd7732a792f4.PNG)
+![project2h](https://user-images.githubusercontent.com/40290711/115117076-bf655f00-9f94-11eb-86aa-81d588bb955e.PNG)
+![project2i](https://user-images.githubusercontent.com/40290711/115117079-c55b4000-9f94-11eb-81a6-cecb7e84fc3e.PNG)
+![project2j](https://user-images.githubusercontent.com/40290711/115117145-08b5ae80-9f95-11eb-8403-f3514068c00d.PNG)
+![project2k](https://user-images.githubusercontent.com/40290711/115117153-0e12f900-9f95-11eb-97ac-b50b549ab963.PNG)
 
 
 
