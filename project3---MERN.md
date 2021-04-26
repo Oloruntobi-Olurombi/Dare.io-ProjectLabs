@@ -45,3 +45,9 @@ console.log(`Server running on port ${port}`)
 - Open up browser and try to access server’s Public IP using :  http://<PublicIP-or-PublicDNS>:5000
 ![newproject3a](https://user-images.githubusercontent.com/40290711/116162814-7167fe00-a6ee-11eb-9647-18625a285192.PNG)
 
+- Create routes
+-There are three actions that our To-Do application needs to be able to do: a) Create a new task, b) Display list of all tasks and c) Delete a completed task
+- Create a folder routes : mkdir routes
+- Change directory to routes folder : cd routes
+- Create a file api.js : touch api.js
+- Open the file with the command : vim api.js
