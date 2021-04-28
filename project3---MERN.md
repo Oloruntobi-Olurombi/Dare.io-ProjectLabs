@@ -472,5 +472,8 @@ monospace;
 - Go to the Todo directory : cd ../..
 When in the Todo directory run : npm run dev
 
-- Assuming no errors when saving all these files, the To-Do app should be ready and fully functional with the functionality discussed earlier: creating a task, deleting a task and viewing all the tasks.
+- Assuming no errors when saving all these files, the To-Do app should be ready and fully functional with the functionality discussed earlier: creating a task, deleting a task and viewing all the tasks:
+
+![newproject3e](https://user-images.githubusercontent.com/40290711/116377342-fd6e4880-a808-11eb-94b3-3b94b0cbc01f.PNG)
+![newproject3f](https://user-images.githubusercontent.com/40290711/116377356-0232fc80-a809-11eb-97e7-c1029e643e76.PNG)
 
