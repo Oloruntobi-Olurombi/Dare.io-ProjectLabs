@@ -141,4 +141,7 @@ You shall see a message ‘Database connected successfully’
 ![newproject3b](https://user-images.githubusercontent.com/40290711/116369466-50dc9880-a801-11eb-82e1-ec490c6df676.PNG)
 
 - Create a Get to the API Endpoint:
+![newproject3c](https://user-images.githubusercontent.com/40290711/116370388-42db4780-a802-11eb-92b0-703ae640b2e5.PNG)
+
+- Create a Delete to the API Endpoint:
 - 
