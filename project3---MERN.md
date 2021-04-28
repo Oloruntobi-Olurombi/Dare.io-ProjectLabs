@@ -51,3 +51,41 @@ console.log(`Server running on port ${port}`)
 - Change directory to routes folder : cd routes
 - Create a file api.js : touch api.js
 - Open the file with the command : vim api.js
+- Paste the code below into it then save and exit:
+const express = require ('express');
+const router = express.Router();
+const Todo = require('../models/todo');
+
+router.get('/todos', (req, res, next) => {
+
+//this will return all the data, exposing only the id and action field to the client
+Todo.find({}, 'action')
+.then(data => res.json(data))
+.catch(next)
+});
+
+router.post('/todos', (req, res, next) => {
+if(req.body.action){
+Todo.create(req.body)
+.then(data => res.json(data))
+.catch(next)
+}else {
+res.json({
+error: "The input field is empty"
+})
+}
+});
+
+router.delete('/todos/:id', (req, res, next) => {
+Todo.findOneAndDelete({"_id": req.params.id})
+.then(data => res.json(data))
+.catch(next)
+})
+
+module.exports = router;
+
+-Setting up MongoDB
+What is MongoDB: MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. 
+- logged on to https://www.mongodb.com and create an amount 
+- create an organisation, also create a project, create a user and choose the Atlas and create a cluster.
+- Click on Network Access and allow access from anywhere
