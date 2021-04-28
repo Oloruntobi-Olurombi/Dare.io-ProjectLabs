@@ -137,5 +137,8 @@ You shall see a message ‘Database connected successfully’
 
 - Testing Backend Code without Frontend using RESTful API
 - For this task I will using Insonmia App instead of Postman (I find Insonmia easy to use)
-- Create a create Todo Endpoint:
+- Create a Post to the API Endpoint:
+![newproject3b](https://user-images.githubusercontent.com/40290711/116369466-50dc9880-a801-11eb-82e1-ec490c6df676.PNG)
+
+- Create a Get to the API Endpoint:
 - 
