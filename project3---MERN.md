@@ -145,3 +145,31 @@ You shall see a message ‘Database connected successfully’
 
 - Create a Delete to the API Endpoint:
 ![newproject3d](https://user-images.githubusercontent.com/40290711/116370710-9188e180-a802-11eb-903a-648da053af89.PNG)
+
+- Set Up Frontend 
+- Use the create-react-app command to scaffold our app in the root directory : $ npx create-react-app client
+- This will create a new folder in the Todo directory called client, add all the react code in the client directory
+
+- Running a React App : Before testing the react app, there are some dependencies that need to be installed
+npm install concurrently --save-dev && $ npm install nodemon --save-dev
+
+-In Todo folder open the package.json file. Change the highlighted part of the below screenshot and replace with the code below:
+"scripts": {
+"start": "node index.js",
+"start-watch": "nodemon index.js",
+"dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
+},
+
+- Configure Proxy in package.json
+
+- Change directory to ‘client’
+cd client
+
+Open the package.json file
+
+vi package.json
+Add the key value pair in the package.json file "proxy": "http://localhost:5000"
+
+- The whole purpose of adding the proxy configuration in number 3 above is to make it possible to access the application directly from the browser by simply calling the server url like http://localhost:5000 rather than always including the entire path like http://localhost:5000/api/todos
+- Ensure you are inside the Todo directory, and simply do:
+npm run dev
