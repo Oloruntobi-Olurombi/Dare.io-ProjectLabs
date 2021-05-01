@@ -94,7 +94,7 @@ What is MongoDB: MongoDB is a source-available cross-platform document-oriented 
 - Paste : DB = mongodb+srv://<username>:<password>@<network-address>/<dbname>?retryWrites=true&w=majority (please don't add ' ' to the string connection in the DB variable)
 - Ensure to update <username>, <password>, <network-address> and <database> according to your setup
 - Update the index.js to reflect the use of .env so that Node.js can connect to the database:
-- const express = require('express');
+const express = require('express')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes/api');
