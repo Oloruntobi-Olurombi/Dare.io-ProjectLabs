@@ -21,7 +21,8 @@ Application Code Setup
 - Create a file index.js : touch index.js
 - Install the dotenv module : npm install dotenv
 - Open the index.js file: vim index.js 
-- write some code
+- write some code :
+
 const express = require('express');
 require('dotenv').config();
 const app = express();
@@ -141,6 +142,8 @@ console.log(`Server running on port ${port}`)
 node index.js
 You shall see a message ‘Database connected successfully’
 
+![newproject3e](https://user-images.githubusercontent.com/40290711/116377342-fd6e4880-a808-11eb-94b3-3b94b0cbc01f.PNG)
+
 - Testing Backend Code without Frontend using RESTful API
 - For this task I used Insonmia App instead of Postman (I find Insonmia easy to use)
 - Create a Post to the API Endpoint:
@@ -178,6 +181,8 @@ Add the key value pair in the package.json file "proxy": "http://localhost:5000"
 
 - The whole purpose of adding the proxy configuration in number 3 above is to make it possible to access the application directly from the browser by simply calling the server url like http://localhost:5000 rather than always including the entire path like http://localhost:5000/api/todos
 - Ensure you are inside the Todo directory, and simply do : npm run dev
+![newproject3f](https://user-images.githubusercontent.com/40290711/116377356-0232fc80-a809-11eb-97e7-c1029e643e76.PNG)
+
 - App should open and start running on localhost:3000 : Please add an inbound rule in the EC2 instance Security Group (TCP, Allow access from everywhere, Port: 3000)
 - Creating React Components
 - From your Todo directory run : cd client
@@ -479,7 +484,6 @@ When in the Todo directory run : npm run dev
 
 - Assuming no errors when saving all these files, the To-Do app should be ready and fully functional with the functionality discussed earlier: creating a task, deleting a task and viewing all the tasks:
 
-![newproject3e](https://user-images.githubusercontent.com/40290711/116377342-fd6e4880-a808-11eb-94b3-3b94b0cbc01f.PNG)
-![newproject3f](https://user-images.githubusercontent.com/40290711/116377356-0232fc80-a809-11eb-97e7-c1029e643e76.PNG)
+
 ![newproject3f2](https://user-images.githubusercontent.com/40290711/116377872-85ece900-a809-11eb-9a98-d6769d89c316.PNG)
 ![newproject3g](https://user-images.githubusercontent.com/40290711/116377897-8ab19d00-a809-11eb-9401-d50a16b28a2d.PNG)
