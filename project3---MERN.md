@@ -1,8 +1,9 @@
-#WEB STACK IMPLEMENTATION IN AWS 
-MERN STACK.
+#WEB STACK IMPLEMENTATION IN AWS MERN STACK.
+
 MERN is a technology stack that stands for MongoDB, Express, ReactJS and NodeJS.
  
 Steps in deploying a MERN STACK using AWS EC2 instance running on an Ubuntu server with MobaXterm as IDE and SSH channel:
+
 - Step up AWS account and an EC2 instance with an ubuntu server
 - Open a new session with MobaXterm
 -  Update Ubuntu : sudo apt update
@@ -11,6 +12,7 @@ Steps in deploying a MERN STACK using AWS EC2 instance running on an Ubuntu serv
 -  Install Node.js on the server : sudo apt-get install -y nodejs
 -  Check Node Version : node -v
 -  Verify the node installation  : npm -v 
+
 Application Code Setup
 - Create a new directory : mkdir Todo
 - Change current directory to the newly created one : cd Todo
@@ -18,14 +20,13 @@ Application Code Setup
 - Install ExpressJS : npm install express
 - Create a file index.js : touch index.js
 - Install the dotenv module : npm install dotenv
-- Open the index.js file: vim index.js : write some code
-- const express = require('express');
+- Open the index.js file: vim index.js 
+- write some code
+const express = require('express');
 require('dotenv').config();
-
 const app = express();
 
 const port = process.env.PORT || 5000;
-
 app.use((req, res, next) => {
 res.header("Access-Control-Allow-Origin", "\*");
 res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -40,7 +41,7 @@ app.listen(port, () => {
 console.log(`Server running on port ${port}`)
 });
 
-- Save and quit : :wq!
+- Save and quit :- :wq!
 
 -Start server : node index.js
 - Add a new inbound rule in EC2 Security Groups @TPC 5000
@@ -54,6 +55,7 @@ console.log(`Server running on port ${port}`)
 - Create a file api.js : touch api.js
 - Open the file with the command : vim api.js
 - Paste the code below into it then save and exit:
+
 const express = require ('express');
 const router = express.Router();
 const Todo = require('../models/todo');
@@ -92,10 +94,12 @@ What is MongoDB: MongoDB is a source-available cross-platform document-oriented 
 - create an organisation, also create a project, create a user and choose the Atlas and create a cluster.
 - Click on Network Access and allow access from anywhere
 - Create a Database and also create a collection inside of the database.
-- Create a .env file : touch .env
-- Paste : DB = mongodb+srv://<username>:<password>@<network-address>/<dbname>?retryWrites=true&w=majority (please don't add ' ' to the string connection in the DB variable)
+- Create a dotenv file : touch .env
+- Paste : 
+DB = mongodb+srv://<username>:<password>@<network-address>/<dbname>?retryWrites=true&w=majority (please don't add ' ' to the string connection in the DB variable)
 - Ensure to update <username>, <password>, <network-address> and <database> according to your setup
 - Update the index.js to reflect the use of .env so that Node.js can connect to the database:
+
 const express = require('express')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -178,8 +182,7 @@ Add the key value pair in the package.json file "proxy": "http://localhost:5000"
 - Creating React Components
 - From your Todo directory run : cd client
 - Move to the src directory : cd src
-- Inside your src folder create another folder called components
-- mkdir components
+- Inside your src folder create another folder called components : mkdir components
 - Move into the components directory with : cd components
 
 Inside ‘components’ directory create three files Input.js, ListTodo.js and Todo.js.
