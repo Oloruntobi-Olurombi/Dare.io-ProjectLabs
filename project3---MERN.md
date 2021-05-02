@@ -1,4 +1,4 @@
-#WEB STACK IMPLEMENTATION IN AWS MERN STACK.
+#MERN STACK IMPLEMENTATION IN AWS EC2 instance and Ubuntu server.
 
 MERN is a technology stack that stands for MongoDB, Express, ReactJS and NodeJS.
  
