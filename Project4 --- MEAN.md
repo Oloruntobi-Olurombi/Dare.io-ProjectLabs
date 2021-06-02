@@ -50,4 +50,5 @@ Steps in deploying a MEAN STACK using AWS EC2 instance running on an Ubuntu serv
 + Create a file named routes.js
 - vi routes.js
 + Copy and paste the code below into routes.js:
+
 ![project43](https://user-images.githubusercontent.com/40290711/120469544-61e96e00-c39a-11eb-9ff3-952127cbd0b2.png)
