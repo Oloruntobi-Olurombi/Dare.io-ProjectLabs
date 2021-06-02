@@ -82,3 +82,23 @@ Steps in deploying a MEAN STACK using AWS EC2 instance running on an Ubuntu serv
 
 ![project45b](https://user-images.githubusercontent.com/40290711/120474262-e7235180-c39f-11eb-9cf8-8f5e180737cd.png)
 
++ Change the directory back up to ‘Books’: 
+- cd ..
++ Start the server by running this command:
+- node server.js
+
+![project46](https://user-images.githubusercontent.com/40290711/120475705-9f9dc500-c3a1-11eb-8bf1-6ca7acaf9a16.png)
+
++ We need to open TCP port 3300 in the AWS Web Console for the EC2 Instance:
+
+![image](https://user-images.githubusercontent.com/40290711/120475420-3f0e8800-c3a1-11eb-9a3b-99cf7ef5883f.png)
+
++ Now you can access our Book Register web application from the Internet with a browser using Public IP address or Public DNS name:
+- Public IP address:3300
+
+![project47](https://user-images.githubusercontent.com/40290711/120475828-c2c87480-c3a1-11eb-8f38-84a3d688ea92.png)
+
+![project48](https://user-images.githubusercontent.com/40290711/120475890-d8d63500-c3a1-11eb-8242-9510d6d227b4.png)
+
+# Congrations, you just deployed your first MEAN stack application.
+
