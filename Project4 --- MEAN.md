@@ -40,3 +40,14 @@ Steps in deploying a MEAN STACK using AWS EC2 instance running on an Ubuntu serv
 - vi server.js
 + Copy and paste the web server code below into the server.js file:
 ![project42](https://user-images.githubusercontent.com/40290711/120468147-cefc0400-c398-11eb-8d09-98786ffff01b.png)
+
+# Step 3: Install Express and set up routes to the server
+- Express.js, or simply Express, is a back end web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js.
+- We also will use Mongoose package which provides a straight-forward, schema-based solution to model our application data.
++ sudo npm install express mongoose
++ In ‘Books’ folder, create a folder named apps
+- mkdir apps && cd apps
++ Create a file named routes.js
+- vi routes.js
++ Copy and paste the code below into routes.js:
+![project43](https://user-images.githubusercontent.com/40290711/120469544-61e96e00-c39a-11eb-9ff3-952127cbd0b2.png)
