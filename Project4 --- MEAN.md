@@ -19,4 +19,8 @@ Steps in deploying a MEAN STACK using AWS EC2 instance running on an Ubuntu serv
 - echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
 - sudo apt install -y mongodb
 + Start the server using the following:
-
+- sudo service mongodb start
++ Verify that the service is up and running:
+- sudo systemctl status mongodb
+![project41](https://user-images.githubusercontent.com/40290711/120465841-5005cc00-c396-11eb-82fb-c06a19d39eca.png)
+- When you see the following once the server is running successfully.
