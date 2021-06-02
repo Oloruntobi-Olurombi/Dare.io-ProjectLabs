@@ -49,5 +49,17 @@ Steps in deploying a MEAN STACK using AWS EC2 instance running on an Ubuntu serv
 - mkdir apps && cd apps
 + Create a file named routes.js
 - vi routes.js
-+ Copy and paste the code below into routes.js
++ Copy and paste the code below into routes.js:
+
 ![image](https://user-images.githubusercontent.com/40290711/120470390-606c7580-c39b-11eb-8246-7d8e8b5f9315.png)
+
++ In the ‘apps’ folder, create a folder named models:
+- mkdir models && cd models
++ Create a file named book.js:
+- vi book.js
++ Copy and paste the code below into ‘book.js’:
+
+![project43](https://user-images.githubusercontent.com/40290711/120470898-fdc7a980-c39b-11eb-8e0b-cb763a6d5aca.png)
+
+# Step 4 - Access the routes with AngularJS
+- AngularJS is a JavaScript-based open-source front-end web framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.
