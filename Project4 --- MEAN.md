@@ -23,4 +23,10 @@ Steps in deploying a MEAN STACK using AWS EC2 instance running on an Ubuntu serv
 + Verify that the service is up and running:
 - sudo systemctl status mongodb
 ![project41](https://user-images.githubusercontent.com/40290711/120465841-5005cc00-c396-11eb-82fb-c06a19d39eca.png)
-- When you see the following once the server is running successfully.
+- When you see the above it shows that the server is running successfully.
+- Press Ctrl + C to Esc on a Windows System.
++ Install Node Package Manager
+- sudo apt install -y npm
++ Install Body-Parser
+- sudo npm install body-parser
+- ‘body-parser’ package helps us process JSON files passed in requests to the server.
