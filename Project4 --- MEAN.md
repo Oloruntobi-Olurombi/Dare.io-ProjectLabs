@@ -30,3 +30,13 @@ Steps in deploying a MEAN STACK using AWS EC2 instance running on an Ubuntu serv
 + Install Body-Parser
 - sudo npm install body-parser
 - ‘body-parser’ package helps us process JSON files passed in requests to the server.
+
+# Application Code Setup
++ Create a folder named ‘Books’:
+- mkdir Books && cd Books
++ In the Books directory, Initialize npm project:
+- npm init
++ Add a file to it named server.js
+- vi server.js
++ Copy and paste the web server code below into the server.js file:
+![project42](https://user-images.githubusercontent.com/40290711/120468147-cefc0400-c398-11eb-8d09-98786ffff01b.png)
