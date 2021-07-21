@@ -34,4 +34,6 @@ sudo groupadd developer
 
 ### Create a Shell script with name 'onboarding-user.sh with the code:
 
+![image](https://user-images.githubusercontent.com/40290711/126573279-8124ac47-97fc-4d64-897c-9fd625723b16.png)
+
 
