@@ -13,4 +13,11 @@
 - Open up the Ubuntu or Windows terminal and run curl command:
 
  curl -Iv www.propitixhomes.com
+ 
+ - Note: If your Ubuntu does not have ‘curl’, you can install it by running sudo apt install curl
+ 
+ In this example, your terminal will be the client, while www.propitixhomes.com will be the server.
+
+See the response from the remote server in below output. You can also see that the requests from the URL are being served by a computer with an IP address 160.153.133.153 on port 80. More on IP addresses and ports when we get to Networking related projects
+ 
 
