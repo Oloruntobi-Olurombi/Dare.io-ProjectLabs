@@ -11,5 +11,6 @@
 ##### Steps:
 
 - Open up the Ubuntu or Windows terminal and run curl command:
+
  curl -Iv www.propitixhomes.com
 
