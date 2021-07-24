@@ -19,7 +19,11 @@
 
  curl -Iv www.propitixhomes.com
  
- 
+ ![projectclient2](https://user-images.githubusercontent.com/40290711/126867675-fe2f6f9a-8dee-4b7a-8050-fd4cb44efdfe.PNG)
+
+![projectclient3](https://user-images.githubusercontent.com/40290711/126867684-bd99cd41-b60c-44e7-93ea-cc92f3135200.PNG)
+
+  
  In this example, your terminal will be the client, while www.propitixhomes.com will be the server.
 
 See the response from the remote server in below output. You can also see that the requests from the URL are being served by a computer with an IP address 160.153.133.153 on port 80. More on IP addresses and ports when we get to Networking related projects
