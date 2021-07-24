@@ -12,15 +12,19 @@
 
 - Open up the Ubuntu or Windows terminal and run curl command:
 
+ Note: If your Ubuntu does not have ‘curl’, you can install it by running sudo apt install curl
+ 
+ ![projectclient](https://user-images.githubusercontent.com/40290711/126867609-d26a7c40-abda-412b-9308-d2648ced87b4.PNG)
+ 
+
  curl -Iv www.propitixhomes.com
  
- - Note: If your Ubuntu does not have ‘curl’, you can install it by running sudo apt install curl
  
  In this example, your terminal will be the client, while www.propitixhomes.com will be the server.
 
 See the response from the remote server in below output. You can also see that the requests from the URL are being served by a computer with an IP address 160.153.133.153 on port 80. More on IP addresses and ports when we get to Networking related projects
 
-![projectclient](https://user-images.githubusercontent.com/40290711/126867609-d26a7c40-abda-412b-9308-d2648ced87b4.PNG)
+
 
 
 
