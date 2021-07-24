@@ -28,7 +28,7 @@
 
 See the response from the remote server in below output. You can also see that the requests from the URL are being served by a computer with an IP address 160.153.133.153 on port 80. More on IP addresses and ports when we get to Networking related projects.
 
-### Nice One, you just implemented the Client-Server communication Process. You must be really proud of your achieve. See you at the top mate. Best of luck
+### Nice One, you just implemented the Client-Server communication Process. You must be really proud of your achievement. See you at the top mate. Best of luck
 
 
 
