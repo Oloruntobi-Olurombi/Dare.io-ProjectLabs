@@ -5,3 +5,11 @@
 
 ### A simple diagram of Web Client-Server architecture is presented below:
 ![image](https://user-images.githubusercontent.com/40290711/126867426-ae6bdc07-1e46-4315-a04a-532714a0d30e.png)
+
+### Lets take a very quick example and see Client-Server communicatation in action.
+
+##### Steps:
+
+- Open up the Ubuntu or Windows terminal and run curl command:
+ curl -Iv www.propitixhomes.com
+
