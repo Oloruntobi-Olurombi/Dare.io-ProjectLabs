@@ -17,7 +17,12 @@
 ![projectserver](https://user-images.githubusercontent.com/40290711/127066029-c2eeb90f-2a85-4e4e-a123-671bd0b5d6e5.PNG)
 
 - Enable the system using: sudo systemctl enable mysql
+- 
 ![image](https://user-images.githubusercontent.com/40290711/127067157-23dcb548-1148-4036-88ec-36752f5d9b98.png)
+
+-By default, both of your EC2 virtual servers are located in the same local virtual network, so they can communicate to each other using local IP addresses. Use mysql server's local IP address to connect from mysql client. MySQL server uses TCP port 3306 by default, so you will have to open it by creating a new entry in ‘Inbound rules’ in ‘mysql server’ Security Groups. For extra security, do not allow all IP addresses to reach your ‘mysql server’ – allow access only to the specific local IP address of your ‘mysql client’: 
+
+![image](https://user-images.githubusercontent.com/40290711/127067668-9f4fa2b8-62bb-4b1d-a643-dc9c4253d91a.png)
 
 
 
