@@ -45,5 +45,12 @@
 
 ![projectserver8](https://user-images.githubusercontent.com/40290711/127070342-3a038c8b-d8bc-4ae9-8535-f917eaf6fddf.PNG)
 
+- exit the MySQL server using: 
+
+![projectserver9](https://user-images.githubusercontent.com/40290711/127070511-41873a7b-d2b1-481e-8de3-54e929095491.PNG)
+
+- Configure MySQL server to allow connections from remote hosts:
+
+![projectserver10a](https://user-images.githubusercontent.com/40290711/127070660-9ea7e24c-73cc-424c-bfa9-2cbc21c97e27.PNG)
 
 
