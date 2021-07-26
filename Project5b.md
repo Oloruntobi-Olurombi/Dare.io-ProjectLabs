@@ -57,4 +57,20 @@
 
 ![projectserver10](https://user-images.githubusercontent.com/40290711/127070889-676d0bf1-2261-4a2d-95b5-f78a54f102cb.png)
 
+- Proceed to restart the MySQL server:
 
+![projectserver10](https://user-images.githubusercontent.com/40290711/127071190-f0f110f4-e352-48a9-98e8-f3e6ac36a719.png)
+
+- From mysql client Linux Server connect remotely to mysql server Database Engine without using SSH. Please use the mysql utility to perform this action: 
+
+sudo mysql -u namesofuser -h privateIPaddress -p
+
+![image](https://user-images.githubusercontent.com/40290711/127071468-253975c9-5acb-4a43-aa0f-7dfa3f1b7f00.png)
+
+- Check that it has successfully connected to a remote MySQL server and can perform SQL queries:
+
+SHOW DATABASE;
+
+![projectserver13](https://user-images.githubusercontent.com/40290711/127071627-f8d544f2-6991-4bfa-8dfc-8c2a3e57fd71.PNG)
+
+######## Congratulation you just finished this lap in flying color. 
