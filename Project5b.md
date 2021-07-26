@@ -38,5 +38,12 @@
 - Create a Database on the MySQL server: 
 ![projectserver6](https://user-images.githubusercontent.com/40290711/127069815-9c47b2d7-375f-4018-97a6-d323ea2bf3f5.PNG)
 
+- Grant permission on the database to the user using:
+![projectserver7](https://user-images.githubusercontent.com/40290711/127070166-f19518d5-fc85-4da0-b055-1061b3748546.PNG)
+
+- Then flush privileges using:
+
+![projectserver8](https://user-images.githubusercontent.com/40290711/127070342-3a038c8b-d8bc-4ae9-8535-f917eaf6fddf.PNG)
+
 
 
