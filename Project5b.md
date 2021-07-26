@@ -30,8 +30,13 @@
 
 - Start the MySql server using: sudo mysql
 
-- Create a user on our MySQL server:
+- Create a user on the MySQL server:
 
 ![projectserver5](https://user-images.githubusercontent.com/40290711/127069209-374df21d-2809-45f7-b589-c60184abb31e.PNG)
+
+
+- Create a Database on the MySQL server: 
+![projectserver6](https://user-images.githubusercontent.com/40290711/127069815-9c47b2d7-375f-4018-97a6-d323ea2bf3f5.PNG)
+
 
 
