@@ -24,5 +24,14 @@
 
 ![image](https://user-images.githubusercontent.com/40290711/127067668-9f4fa2b8-62bb-4b1d-a643-dc9c4253d91a.png)
 
+- Secure the sql server using: sudo mysql_secure_installation:
+
+![projectserver4](https://user-images.githubusercontent.com/40290711/127068534-7b7728bc-58f2-4ac3-9134-756befeb958b.PNG)
+
+- Start the MySql server using: sudo mysql
+
+- Create a user on our MySQL server:
+
+![projectserver5](https://user-images.githubusercontent.com/40290711/127069209-374df21d-2809-45f7-b589-c60184abb31e.PNG)
 
 
