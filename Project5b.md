@@ -53,4 +53,8 @@
 
 ![projectserver10a](https://user-images.githubusercontent.com/40290711/127070660-9ea7e24c-73cc-424c-bfa9-2cbc21c97e27.PNG)
 
+- On the file replace ‘127.0.0.1’ to ‘0.0.0.0’ like this:
+
+![projectserver10](https://user-images.githubusercontent.com/40290711/127070889-676d0bf1-2261-4a2d-95b5-f78a54f102cb.png)
+
 
