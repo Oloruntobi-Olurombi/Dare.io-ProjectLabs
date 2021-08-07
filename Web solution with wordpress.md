@@ -37,6 +37,49 @@ sudo gdisk /dev/xvdg
 
 ![project66b](https://user-images.githubusercontent.com/40290711/128599280-f2df89e0-8cbd-4898-b9e7-e32dace9cf67.PNG)
 
+sudo gdisk /dev/xvdh
+![project67a](https://user-images.githubusercontent.com/40290711/128599311-5b946dd3-dc4e-4628-9121-c0e58e43cdd4.PNG)
+
+![project67b](https://user-images.githubusercontent.com/40290711/128599316-319d59a8-315c-45bd-a90b-d03fa458a922.PNG)
+
+-  To view the newly configured partition on each of the 3 disks using:
+
+lsblk
+
+![project68](https://user-images.githubusercontent.com/40290711/128599383-6efe00fb-516f-47fe-9ff4-ecb55c9e638e.PNG)
+
+- Install lvm2 package using:
+
+sudo yum install lvm2
+
+![project69](https://user-images.githubusercontent.com/40290711/128599419-bff5e6ed-49c4-4902-84f6-8cfdacbbed41.PNG)
+
+- Check for available partitions running:
+
+sudo lvmdiskscan
+
+- Mark each of 3 disks as physical volumes (PVs) to be used by LVM using:
+
+sudo pvcreate /dev/xvdf1 /dev/xvdg1 /dev/xvdh1
+
+![project610](https://user-images.githubusercontent.com/40290711/128599538-4d252b7c-2d68-4ae0-88ab-1027b2d6c522.PNG)
+
+- Verify that your Physical volume has been created successfully by running:
+
+sudo pvs 
+
+![project611](https://user-images.githubusercontent.com/40290711/128599573-15d5a1d2-4c9a-439f-a9ce-e8da2c613add.PNG)
+
+- To add all 3 PVs to a volume group (VG) use:
+
+sudo vgcreate vg-webdata /dev/xvdh1 /dev/xvdg1 /dev/xvdf1 
+
+![project612](https://user-images.githubusercontent.com/40290711/128599607-42b16b24-e7e7-41c3-934d-7961c71a5506.PNG)
+
+- Verify that the VG has been created successfully by running:
+sudo vgs
+![project612b](https://user-images.githubusercontent.com/40290711/128599659-4d9c24e7-8417-4f5e-a9ac-838f8fc6e4da.PNG)
+
 
 #### Step 2 : Update the '/etc/fstab' File.
 - The UUID of the device will be used to update the /etc/fstab 
