@@ -25,9 +25,18 @@ lsblk
 
 - Create a single partition on each of the 3 disks using:
 
-sudo gdisk /dev/
+sudo gdisk /dev/xvdf
 
-![project64](https://user-images.githubusercontent.com/40290711/128599186-167303d5-ab90-4cc7-87ea-7fb238aab9aa.PNG)
+![project65a](https://user-images.githubusercontent.com/40290711/128599227-baed3bd5-47dc-4acd-9f69-3cc7020798fb.PNG)
+
+![Project65b](https://user-images.githubusercontent.com/40290711/128599252-664ee644-ab84-442e-9a3c-e2f4cdb38c9b.PNG)
+
+sudo gdisk /dev/xvdg
+
+![project66a](https://user-images.githubusercontent.com/40290711/128599275-bd09f157-1f70-4996-958b-88b02507ec90.PNG)
+
+![project66b](https://user-images.githubusercontent.com/40290711/128599280-f2df89e0-8cbd-4898-b9e7-e32dace9cf67.PNG)
+
 
 #### Step 2 : Update the '/etc/fstab' File.
 - The UUID of the device will be used to update the /etc/fstab 
