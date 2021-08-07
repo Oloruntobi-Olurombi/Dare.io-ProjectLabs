@@ -346,8 +346,7 @@ exit
  
  ![project671](https://user-images.githubusercontent.com/40290711/128602976-ba214feb-48cd-435b-8394-090e0720b332.PNG)
 
- 
-####### Important: Do not forget to STOP your EC2 instances after completion of the project to avoid extra costs.
+ Important: Do not forget to STOP your EC2 instances after completion of the project to avoid extra costs.
 
 ###### CONGRATULATIONS!
 You have learned how to configure Linux storage susbystem and have also deployed a full-scale Web Solution using WordPress CMS and MySQL RDBMS!
