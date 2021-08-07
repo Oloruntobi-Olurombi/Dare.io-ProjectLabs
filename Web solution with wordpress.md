@@ -142,5 +142,175 @@ Update /etc/fstab in this format using your own UUID and rememeber to remove the
 - Verify your setup by running df -h, output must look like this:
 ![project623](https://user-images.githubusercontent.com/40290711/128600598-9aaa46ee-ae9d-472e-a193-3cf2fd1c141a.PNG)
 
+#### Step 3 --- Prepare the Database Server:
+Launch a second RedHat EC2 instance that will have a role – ‘DB Server’
+Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv and mount it to /db directory instead of /var/www/html/.
+
+- Create 3 volumes in the same AZ as your Database Server EC2, each of 10 GiB.
+![project624](https://user-images.githubusercontent.com/40290711/128600736-27c8a9af-03b7-47a7-b540-3285accbef6a.PNG)
+
+- Attach all three volumes one by one to the Database Server EC2 instance:
+![project625](https://user-images.githubusercontent.com/40290711/128600821-be7ac28b-451c-43aa-9010-c0a3fb5d3f20.PNG)
+
+-  Check if the three volumes are attached to the server via the command line using: 
+lsblk 
+
+![project626](https://user-images.githubusercontent.com/40290711/128600852-60ef4ce9-554a-4dbe-849a-9022b9b639e1.PNG)
+
+- sudo gdisk /dev/xvdg:
+![project627](https://user-images.githubusercontent.com/40290711/128600895-2dce4dd0-2fa4-46b1-971b-fb7683aa78ac.PNG)
+
+![project627b](https://user-images.githubusercontent.com/40290711/128600901-cad2bf78-1749-471f-8265-67c4718bc3a2.PNG)
+
+- sudo gdisk /dev/xvdh:
+
+![project628](https://user-images.githubusercontent.com/40290711/128600928-4bd3822a-74f9-4d0b-95fa-370f1a597e52.PNG)
+
+![project628b](https://user-images.githubusercontent.com/40290711/128600937-8d0c7fc2-ee4c-4f26-bb34-1b58e93826b8.PNG)
+
+- To view the newly configured partition on each of the 3 disks using:
+lsblk
+
+![project629](https://user-images.githubusercontent.com/40290711/128600982-b09b4432-c5d3-4d70-9833-23c747acbb86.PNG)
+
+- Install lvm2 package using:
+sudo yum install lvm2
+
+![project630](https://user-images.githubusercontent.com/40290711/128601034-f7e2f08e-4b54-4e2b-9dd4-778fc71f6a4f.PNG)
+
+- Mark each of 3 disks as physical volumes (PVs) to be used by LVM using:
+sudo pvcreate /dev/xvdf1 /dev/xvdg1 /dev/xvdh1
+
+![project631](https://user-images.githubusercontent.com/40290711/128601066-5a9105b7-3c8d-4b8c-adf2-a4a4475d31d1.PNG)
+
+- To add all 3 PVs to a volume group (VG) use:
+sudo vgcreate vg-database /dev/xvdh1 /dev/xvdg1 /dev/xvdf1 
+
+![project632](https://user-images.githubusercontent.com/40290711/128601135-7c12663c-8f98-4c10-b2b5-91c0f8716c1d.PNG)
+
+- Verify that the VG has been created successfully by running:
+sudo vgs
+
+![project633](https://user-images.githubusercontent.com/40290711/128601195-c56131d3-9977-4e8f-aa54-e33b12c61a68.PNG)
 
 
+- Verify that the Logical Volume has been created successfully by running:
+ sudo lvcreate -n db-lv -L 20G vg-database 
+ 
+ ![project634](https://user-images.githubusercontent.com/40290711/128601354-dcd64c74-6276-45a4-bc39-7a914581367e.PNG)
+
+- Create a new directory called "db":
+sudo mkdir /db 
+ 
+- Format the logical volumes with ext4 filesystem using:
+sudo mkfs -t ext4 /dev/vg-database/db-lv
+
+![project635](https://user-images.githubusercontent.com/40290711/128601432-14dda95d-13f2-454b-b040-9446426a70aa.PNG)
+
+- Mount the database using:
+sudo mount /dev/vg-database/db-lv /db
+
+![project636](https://user-images.githubusercontent.com/40290711/128601472-707c0c15-e34c-4c2d-9356-d6b78aa1a675.PNG)
+
+![project637](https://user-images.githubusercontent.com/40290711/128601475-f3ab3266-b1bd-4a99-9f7d-79620fec7b53.PNG)
+
+
+#### Step 4: Install WordPress on your Web Server EC2
+- Update the repository using:
+sudo yum update -y
+
+![project638](https://user-images.githubusercontent.com/40290711/128601582-8fc2d583-cf4d-4bd0-a4db-20bd353d1beb.PNG)
+
+- Install wget, Apache and it’s dependencies
+sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json
+
+![project639](https://user-images.githubusercontent.com/40290711/128601604-6f4b317e-187e-45d3-8423-2ef52f4e15bf.PNG)
+
+- Start Apache
+sudo systemctl enable httpd
+sudo systemctl start httpd
+
+![project641](https://user-images.githubusercontent.com/40290711/128601636-a1a816da-acaa-43b7-8d39-5ee5ab5bdf1a.PNG)
+
+- To install PHP and it’s depemdencies:
+
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo yum module list php
+sudo yum module reset php
+sudo yum module enable php:remi-7.4
+sudo yum install php php-opcache php-gd php-curl php-mysqlnd
+sudo systemctl start php-fpm
+sudo systemctl enable php-fpm
+setsebool -P httpd_execmem 1
+
+![project642](https://user-images.githubusercontent.com/40290711/128601696-0aa051a8-2e40-461f-8345-7645cc958393.PNG)
+
+- Restart Apache
+sudo systemctl restart httpd
+
+- Download wordpress and copy wordpress to var/www/html
+mkdir wordpress
+
+![project643](https://user-images.githubusercontent.com/40290711/128601834-841865d8-67c2-490e-99b7-6f500e5ca3e2.PNG)
+
+cd   wordpress
+sudo wget http://wordpress.org/latest.tar.gz
+
+![project644](https://user-images.githubusercontent.com/40290711/128601847-39cc9a6b-c39f-4541-bc9a-d55ca8a36646.PNG)
+
+sudo tar xzvf latest.tar.gz
+sudo rm -rf latest.tar.gz
+cp wordpress/wp-config-sample.php wordpress/wp-config.php
+![project645](https://user-images.githubusercontent.com/40290711/128601868-b4324a32-0cf4-4876-8484-f8e7d04b2022.PNG)
+cp -R wordpress /var/www/html/
+
+- Configure SELinux Policies:
+sudo chown -R apache:apache /var/www/html/wordpress
+sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
+sudo setsebool -P httpd_can_network_connect=1
+  
+#### Step 4 — Install MySQL on your DB Server EC2
+sudo yum update
+sudo yum install mysql-server
+
+![project646](https://user-images.githubusercontent.com/40290711/128601938-a88c48b1-4c8a-4d45-8b5e-7b5bae2fadfd.PNG)
+
+- Verify that the service is up and running by using sudo systemctl status mysqld, if it is not running, restart the service and enable it so it will be running even after reboot:
+
+sudo systemctl restart mysqld
+sudo systemctl enable mysqld
+
+![project647](https://user-images.githubusercontent.com/40290711/128601993-19d0c038-2794-47c6-8cbb-0089e1479fc1.PNG)
+
+![project650](https://user-images.githubusercontent.com/40290711/128602059-d984217a-80f2-490a-927f-23e824873209.PNG)
+
+
+#### Step 5 — Configure DB to work with WordPress
+![project651](https://user-images.githubusercontent.com/40290711/128602071-e47dfbac-97b7-48d3-b6bf-ad8e9e88564f.PNG)
+
+sudo mysql
+CREATE DATABASE wordpress;
+
+![project652](https://user-images.githubusercontent.com/40290711/128602101-e075121a-aa08-44e1-bba7-f28d17865983.PNG)
+
+![project653](https://user-images.githubusercontent.com/40290711/128602115-3b10379b-b98a-4d6c-8df4-d40acbd200f7.PNG)
+
+CREATE USER `myuser`@`<Web-Server-Private-IP-Address>` IDENTIFIED BY 'mypass';
+![project655](https://user-images.githubusercontent.com/40290711/128602270-1738a2b9-9c63-4bc2-b40f-da9fb5ec000c.PNG)
+
+
+GRANT ALL ON wordpress.* TO 'myuser'@'<Web-Server-Private-IP-Address>';
+![project656](https://user-images.githubusercontent.com/40290711/128602277-cb7a02a9-fa36-473a-8bf8-100e5fc2800e.PNG)
+
+
+FLUSH PRIVILEGES;
+ 
+SHOW DATABASES; 
+ 
+![project657](https://user-images.githubusercontent.com/40290711/128602299-f59a1966-0fb5-4ef0-84c8-4b43cc0c2f2a.PNG)
+ 
+exit
+![project658](https://user-images.githubusercontent.com/40290711/128602311-170e5539-7c8e-4cff-b22a-698ec39327b5.PNG)
+ 
+ 
