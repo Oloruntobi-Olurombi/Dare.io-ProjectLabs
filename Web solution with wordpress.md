@@ -83,10 +83,64 @@ sudo lvcreate -n logs-lv -L 14G vg-webdata
  - Verify the entire setup:
  sudo vgdisplay -v #view complete setup -VG, PV, and LV
  sudo lsblk
+ 
+ - Format the logical volumes with ext4 filesystem using:
+sudo mkfs -t ext4 /dev/vg-webdata/apps-lv
+
+![project614](https://user-images.githubusercontent.com/40290711/128600031-249d2f38-788f-49fa-a23c-4647bb5074f2.PNG)
+
+
+sudo mkfs -t ext4 /dev/vg-webdata/logs-lv
+![project614b](https://user-images.githubusercontent.com/40290711/128600047-5b1ce063-dcf7-4080-b74d-e1703629d9f5.PNG)
+
+- Create /var/www/html directory to store website files:
+sudo mkdir -p /var/www/html
+![project615](https://user-images.githubusercontent.com/40290711/128600137-8142d1fd-e2e0-4fc7-84a4-222cdcaebe6d.PNG)
+
+- Create /home/recovery/logs to store backup of log data:
+sudo mkdir -p /home/recovery/logs
+![project616](https://user-images.githubusercontent.com/40290711/128600171-1e32c389-c685-4315-8bd3-9ded1674d317.PNG)
+
+- Mount /var/www/html on apps-lv logical volume:
+sudo mount /dev/webdata-vg/app-lv /var/www/html/
+
+![project617](https://user-images.githubusercontent.com/40290711/128600217-a0864106-cb62-4709-acd7-f966b629e1c0.PNG)
+
+- Use rsync utility to backup all the files in the log directory /var/log into /home/recovery/logs:
+sudo rsync -av /var/log/. /home/recovery/logs/
+
+![project619](https://user-images.githubusercontent.com/40290711/128600301-554d111c-d609-4ee4-a470-42498ed4d3a9.PNG)
+
+- Mount /var/log on logs-lv logical volume:
+sudo mount /dev/webdata-vg/logs-lv /var/log
+
+![project618](https://user-images.githubusercontent.com/40290711/128600318-06a9166a-4ae5-4173-92b4-4fd2f327d0dd.PNG)
+
+- Restore log files back into /var/log directory:
+sudo rsync -av /home/recovery/logs/log/. /var/log
 
 #### Step 2 : Update the '/etc/fstab' File.
-- The UUID of the device will be used to update the /etc/fstab 
+Update /etc/fstab file so that the mount configuration will persist after restart of the server.
 
+- The UUID of the device will be used to update the /etc/fstab file;
+sudo blkid
+
+![project620](https://user-images.githubusercontent.com/40290711/128600395-c1495576-1f0e-4518-825e-7b5cdb8cd959.PNG)
+
+sudo vi /etc/fstab
+
+Update /etc/fstab in this format using your own UUID and rememeber to remove the leading and ending quotes.
+
+![project621](https://user-images.githubusercontent.com/40290711/128600529-fd25adf2-2f5d-4e72-98be-e5951b9ae2fc.PNG)
+
+- Test the configuration and reload the daemon:
+ sudo mount -a
+ sudo systemctl daemon-reload
+ 
+ ![project622](https://user-images.githubusercontent.com/40290711/128600573-c217ef36-e911-40f0-a17b-49313e5286cf.PNG)
+
+- Verify your setup by running df -h, output must look like this:
+![project623](https://user-images.githubusercontent.com/40290711/128600598-9aaa46ee-ae9d-472e-a193-3cf2fd1c141a.PNG)
 
 
 
