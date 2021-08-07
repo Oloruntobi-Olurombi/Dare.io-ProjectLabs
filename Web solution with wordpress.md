@@ -311,6 +311,44 @@ SHOW DATABASES;
 ![project657](https://user-images.githubusercontent.com/40290711/128602299-f59a1966-0fb5-4ef0-84c8-4b43cc0c2f2a.PNG)
  
 exit
+ 
 ![project658](https://user-images.githubusercontent.com/40290711/128602311-170e5539-7c8e-4cff-b22a-698ec39327b5.PNG)
  
+ #### Step 7: 
+ 
+ Restart the web server mysql using:
+ sudo systemctl restart mysqld
+ sudo systemctl enable mysqld
+ sudo systemct1 status mysqld
+ 
+ ![project659](https://user-images.githubusercontent.com/40290711/128602529-03dbe896-0f0f-44b4-9ba2-97d85ce37512.PNG)
+
+ - Edit the wp-config.php using:
+ sudo vi wp-config.php
+ 
+ ![project660](https://user-images.githubusercontent.com/40290711/128602576-4e925c46-602d-4af9-94a3-ea7a4f93a204.PNG)
+ 
+![project661](https://user-images.githubusercontent.com/40290711/128602582-1f30ee67-2f2d-42ca-b7b7-53a228aa74d0.PNG)
+ 
+- Restart the web server mysql
+![project662](https://user-images.githubusercontent.com/40290711/128602768-e3bc4445-b9fe-4d05-a52e-a7a7a6cf0ca6.PNG)
+ 
+ - Connect the private IP address with the wordpress:
+ 
+ ![project664](https://user-images.githubusercontent.com/40290711/128602863-12c7a4dc-5f73-4cb6-807b-c51533ccc7c8.PNG)
+
+-SHOW DATABASES;
+ ![project665](https://user-images.githubusercontent.com/40290711/128602920-77edfb3e-0433-424a-bca7-a773c45e0458.PNG)
+
+ Try to access from your browser the link to your WordPress http://<Web-Server-Public-IP-Address>/wordpress/
+
+![project670](https://user-images.githubusercontent.com/40290711/128602968-b4ffe9a8-d27c-430e-b9f5-a7fa5d6da206.PNG)
+ 
+ ![project671](https://user-images.githubusercontent.com/40290711/128602976-ba214feb-48cd-435b-8394-090e0720b332.PNG)
+
+ 
+####### Important: Do not forget to STOP your EC2 instances after completion of the project to avoid extra costs.
+
+###### CONGRATULATIONS!
+You have learned how to configure Linux storage susbystem and have also deployed a full-scale Web Solution using WordPress CMS and MySQL RDBMS!
  
