@@ -24,7 +24,7 @@ Web Server 2:
 
 ![image](https://user-images.githubusercontent.com/40290711/128846708-8ecf1223-896a-453a-a9e0-e01cf80c9cfe.png)
 
-*All the necessary TCP/UDP ports have also been configured on the AWS console for the NFS server, all web servers, and the DB server.
+* All the necessary TCP/UDP ports have also been configured on the AWS console for the NFS server, all web servers, and the DB server.
 
 *Both web servers can be accessed by clients using their public IP addresses.
 
