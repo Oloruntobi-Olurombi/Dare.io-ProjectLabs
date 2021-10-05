@@ -162,3 +162,24 @@ Create a Pull request (PR)
 
 ![Screenshot from 2021-10-05 22-32-10](https://user-images.githubusercontent.com/40290711/136105701-461407ee-7c60-4f22-b8e5-0143b6a61457.png)
 
+Merge the code to the master branch.
+
+Checkout from the feature branch into the master and pull down the latest changes.
+
+git checkout master
+git pull
+  
+### Jenkins should pick up the changes we have made so far.
+  
+![image](https://user-images.githubusercontent.com/40290711/136106198-eb80d5d6-0cc1-4d22-b859-315eb40c604d.png)
+  
+ ###  Run first Ansible test
+ 
+![image](https://user-images.githubusercontent.com/40290711/136106324-7f9550de-dea6-4a4d-a595-ce0e69c102bf.png)
+
+Check to see if wireshark has been installed:
+
+![image](https://user-images.githubusercontent.com/40290711/136106484-0646cfe9-46ca-4a63-8cbd-37232d08d1dd.png)
+  
+The End (Congratulation)  
+
