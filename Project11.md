@@ -47,5 +47,29 @@ We are going to test our setup by making some change in the README.MD file in ou
 
 ![image](https://user-images.githubusercontent.com/40290711/136102938-c45bb948-d4c2-4b7b-bc0a-5d8664a3a5fd.png)
 
+From the above images, we can see that we have had 6 automatic builds in Jenkins, and they have also reflected in the folder as shown in the command below /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/
 
+### Prepare the development environment using Visual Studio Code
+
+I was stuck on connecting my VSCode IDE to my Jenkins-Ansible EC2 instance as I specified a private key (ppk) instead of a .pem key.
+
+Follow this link to setup your VSCode to connect to your instance.
+
+### Begin Ansible Development
+
+In the ansible-config-mgt GitHub repository I created previously, we would be creating a new branch that will be used for development of a new feature.
+
+We would checkout a newly created feature branch to our local machine and start building our code and directory structure
+
+We first cloned the repository, then created a new feature using git checkout -b feature name
+
+![image](https://user-images.githubusercontent.com/40290711/136103169-83a30268-2db2-4330-a16a-5ad778af1b89.png)
+
+I created a directory and named it playbooks - it will be used to store all our playbook files.
+
+I created a directory and named it inventory - it will be used to keep our hosts organised.
+
+Within the playbooks folder, I created our first playbook, and named it common.yml
+
+Within the inventory folder, I created an inventory file (.yml) for each environment (Development, Staging Testing and Production) dev, staging, uat, and prod respectively.
 
