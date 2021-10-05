@@ -27,4 +27,16 @@ sudo apt install ansible
 
 ![image](https://user-images.githubusercontent.com/40290711/136101442-3b4b6001-9b59-4dc3-b814-fcae90ae8850.png)
 
+- Check your Ansible version by running ansible --version
+
+Create a new Freestyle project ansible in Jenkins and point it to your ‘ansible-config-mgt’ repository:
+
+![image](https://user-images.githubusercontent.com/40290711/136101645-d4397ce7-ed0b-4e92-9cb1-9fa000be1f7d.png)
+
+- Configure Webhook in GitHub and set webhook to trigger ansible build:
+
+![image](https://user-images.githubusercontent.com/40290711/136101754-3089d1eb-c15b-40fc-bfde-113a7c9f6a73.png)
+
+
+
 
