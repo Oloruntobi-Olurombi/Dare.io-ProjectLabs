@@ -37,6 +37,15 @@ Create a new Freestyle project ansible in Jenkins and point it to your ‘ansibl
 
 ![image](https://user-images.githubusercontent.com/40290711/136101754-3089d1eb-c15b-40fc-bfde-113a7c9f6a73.png)
 
+- Go back to Jenkins and configure triggering a build job from GitHub webhook, and Configure “Post-build Actions” to archive all the files:
+
+![image](https://user-images.githubusercontent.com/40290711/136102381-f611c399-380e-4f01-868b-78bf6155b839.png)
+
+We are going to test our setup by making some change in the README.MD file in our main branch, and we would also make sure that builds starts automatically and Jenkins saves the files (build artifacts) in following folder
+
+/var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/
+
+![image](https://user-images.githubusercontent.com/40290711/136102938-c45bb948-d4c2-4b7b-bc0a-5d8664a3a5fd.png)
 
 
 
