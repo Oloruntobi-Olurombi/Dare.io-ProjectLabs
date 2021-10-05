@@ -160,5 +160,5 @@ In the above image, you can see that I made a mistake of not adding the commit c
 
 Create a Pull request (PR)
 
-![image](https://user-images.githubusercontent.com/40290711/136104301-2ad7d62d-8695-48ab-b1cf-3e470edb1999.png)
+![Screenshot from 2021-10-05 22-32-10](https://user-images.githubusercontent.com/40290711/136105701-461407ee-7c60-4f22-b8e5-0143b6a61457.png)
 
