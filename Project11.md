@@ -98,3 +98,13 @@ We would update our inventory/dev.yml file with this snippet of code:
 [lb]
 <Load-Balancer-Private-IP-Address> ansible_ssh_user='ubuntu' ansible_ssh_private_key_file=<path-to-.pem-private-key>
 Below is what the dev.yml file looks like after inserting information into it
+
+![image](https://user-images.githubusercontent.com/40290711/136103483-4b24d07f-2b93-492c-9382-3346681ca1c6.png)
+
+### Create a Common Playbook
+  
+This is where we start giving Ansible the instructions on what is needed to be performed on all servers listed in inventory/dev.
+
+In common.yml playbook we will write configuration for repeatable, re-usable, and multi-machine tasks that is common to systems within the infrastructure.
+
+We would update our playbooks/common.yml file with following code:
