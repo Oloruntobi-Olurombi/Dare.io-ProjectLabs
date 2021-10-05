@@ -14,3 +14,11 @@ A Jump Server (sometimes also referred as a Bastion Host) is an intermediary ser
 ![image](https://user-images.githubusercontent.com/40290711/136100922-0d4bcbf5-ccc9-4bed-905c-c1512eb319f0.png)
 
 - We would be creating a repository on our GitHub account and we would call it ansible-config-mgt.
+
+![image](https://user-images.githubusercontent.com/40290711/136101107-a2367f81-7e06-441c-8aeb-a7adaddf32d6.png)
+
+- Instal Ansible
+
+sudo apt update
+
+sudo apt install ansible
