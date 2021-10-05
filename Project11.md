@@ -108,3 +108,56 @@ This is where we start giving Ansible the instructions on what is needed to be p
 In common.yml playbook we will write configuration for repeatable, re-usable, and multi-machine tasks that is common to systems within the infrastructure.
 
 We would update our playbooks/common.yml file with following code:
+  
+---
+- name: update web, nfs and db servers
+  hosts: webservers, nfs, db
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure wireshark is at the latest version
+    yum:
+      name: wireshark
+      state: latest
+
+- name: update LB server
+  hosts: lb
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+  - name: ensure wireshark is at the latest version
+    apt:
+      name: wireshark
+      state: latest
+
+This playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.
+
+### Update GIT with the latest code
+  
+Now all of our directories and files live on our machines and we need to push changes that we made locally to GitHub.
+
+In the real world, you will be working within a team of other DevOps engineers and developers. It is important to learn how to collaborate with help of GIT. In many organisations there is a development rule that do not allow to deploy any code before it has been reviewed by an extra pair of eyes - it is also called “Four eyes principle”.
+
+Now you have a separate branch, you will need to know how to raise a Pull Request (PR), get your branch peer reviewed and merged to the master branch.
+
+Commit code into GitHub:
+
+use git commands to add, commit and push our branch to GitHub.
+  
+ git status
+
+git add <selected files>
+
+git commit -m "commit message"
+
+git push --set-upstream origin feature name
+
+![image](https://user-images.githubusercontent.com/40290711/136104105-5447026f-6a00-4c56-8880-669626fed10e.png)
+
+In the above image, you can see that I made a mistake of not adding the commit command when i wanted to commit, hence my changes did not reflect on github.
+
+Create a Pull request (PR)
+
+  
