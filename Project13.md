@@ -37,12 +37,14 @@ Our layout should now look like this:
 ├── dynamic-assignments
   
 │   └── env-vars.yml
+  
 ├── env-vars
   
     └── dev.yml
     └── stage.yml
     └── uat.yml
     └── prod.yml
+  
 ├── inventory
   
     └── dev
@@ -51,9 +53,11 @@ Our layout should now look like this:
     └── prod
   
 ├── playbooks
+  
     └── site.yml
   
 └── static-assignments
+  
     └── common.yml
     └── webservers.yml
  
