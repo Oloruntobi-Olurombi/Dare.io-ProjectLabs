@@ -131,3 +131,14 @@ site.yml should now look like this:
   hosts: webservers
     - import_playbook: ../static-assignments/webservers.yml
 ``` 
+  
+![image](https://user-images.githubusercontent.com/40290711/141778488-7352a484-1ea6-4518-89b8-2c00a8103f41.png)
+ 
+Now it is time to create a role for MySQL database - it should install the MySQL package, create a database and configure users.
+
+But why should we re-invent the wheel? There are tons of roles that have already been developed by other open source engineers out there.
+
+These roles are actually production ready, and dynamic to accomodate most of Linux flavours.
+
+With Ansible Galaxy again, we can simply download a ready to use ansible role, and keep going.
+ 
