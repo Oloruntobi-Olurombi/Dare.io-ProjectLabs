@@ -70,4 +70,15 @@ Our layout should now look like this:
     └── common.yml
     └── webservers.yml
  
+![image](https://user-images.githubusercontent.com/40290711/141775276-b9f9702d-ce78-40a3-87ae-273007342fe7.png)
   
+Now paste the instruction below into the env-vars.yml file:
+
+---
+- name: collate variables from env specific file, if it exists
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ playbook_dir }}/../env_vars/{{ "{{ inventory_file }}.yml"
+    - "{{ playbook_dir }}/../env_vars/default.yml"
+  tags:
+    - always
