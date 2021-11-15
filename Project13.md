@@ -86,3 +86,21 @@ Now paste the instruction below into the env-vars.yml file:
     - always
 
 ```
+
+![image](https://user-images.githubusercontent.com/40290711/141776851-ffedc3bc-9f71-4d68-a454-45c044c9fe76.png)
+  
+ Notice 3 things to note here:
+
+We used include_vars syntax instead of include, this is because Ansible developers decided to separate different features of the module.
+
+From Ansible version 2.8, the include module is deprecated and variants of include_* must be used. These are:
+
+include_role
+include_tasks
+include_vars
+In the same version, variants of import were also introduces, such as:
+
+import_role
+import_tasks
+ 
+ 
