@@ -14,17 +14,26 @@ We will instruct site.yml to include this playbook later. For now, we would keep
 Our GitHub shall have following structure by now:
   
 ├── dynamic-assignments
+  
 │   └── env-vars.yml
+  
 ├── inventory
+  
 │   └── dev
     └── stage
     └── uat
     └── prod
+  
 └── playbooks
+  
     └── site.yml
+  
 └── roles (optional folder)
+  
     └──...(optional subfolders & files)
+  
 └── static-assignments
+  
     └── common.yml
 
 Since we will be using the same Ansible to configure multiple environments, and each of these environments will have certain unique attributes, such as servername, ip-address etc., we will need a way to set values to variables per specific environment.
