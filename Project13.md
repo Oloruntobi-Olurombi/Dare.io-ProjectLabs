@@ -77,19 +77,12 @@ Now paste the instruction below into the env-vars.yml file:
  ``` 
 
 ---
-  
 - name: collate variables from env specific file, if it exists
-  
   include_vars: "{{ item }}"
-  
   with_first_found:
-  
     - "{{ playbook_dir }}/../env_vars/{{ "{{ inventory_file }}.yml"
-  
     - "{{ playbook_dir }}/../env_vars/default.yml"
-  
   tags:
-  
     - always
 
 ```
