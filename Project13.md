@@ -105,3 +105,29 @@ In the same version, variants of import were also introduces, such as:
 - import_tasks
  
  
+We made use of special variables {{ playbook_dir }} and {{ inventory_file }}. {{ playbook_dir }} will help Ansible to determine the location of the running playbook, and from there navigate to other path on the filesystem.
+
+{{ inventory_file }} on the other hand will dynamically resolve to the name of the inventory file being used, then append .yml so that it picks up the required file within the env-vars folder.
+
+We are including the variables using a loop. with_first_found implies that, looping through the list of files, the first one found is used. This is good so that we can always set default values in case an environment specific env file does not exist.
+  
+#### Update site.yml with dynamic assignments
+  
+Update site.yml file to make use of the dynamic assignment. (At this point, we cannot test it yet. We are just setting the stage for what is yet to come)
+
+site.yml should now look like this: 
+
+```
+---
+- name: Include dynamic variables 
+  hosts: all
+  tasks:
+    - import_playbook: ../static-assignments/common.yml 
+    - include_playbook: ../dynamic-assignments/env-vars.yml
+  tags:
+    - always
+
+- name: Webserver assignment
+  hosts: webservers
+    - import_playbook: ../static-assignments/webservers.yml
+``` 
