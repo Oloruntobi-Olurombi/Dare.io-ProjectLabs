@@ -142,3 +142,103 @@ These roles are actually production ready, and dynamic to accomodate most of Lin
 
 With Ansible Galaxy again, we can simply download a ready to use ansible role, and keep going.
  
+## Download Mysql Ansible Role
+
+We will be using a MySQL role developed by geerlingguy.
+
+In order to preserve our GitHub in it's actual state after we install a new role - make a commit and push to master our ‘ansible-config-mgt’ directory.
+
+On Jenkins-Ansible server make sure that git is installed with git --version, then go to ‘ansible-configuration-management’ directory and run:
+  
+``` 
+git init
+git pull https://github.com/<your-name>/ansible-config-mgt.git
+git remote add origin https://github.com/<your-name>/ansible-config-mgt.git
+git branch roles-feature
+git switch roles-feature
+``` 
+  
+Inside roles directory create your new MySQL role with ansible-galaxy install geerlingguy.mysql and rename the folder to mysql 
+  
+``` 
+ mv geerlingguy.mysql/ mysql 
+``` 
+![image](https://user-images.githubusercontent.com/40290711/141782147-18406420-6ba3-4039-9181-8d2c84985132.png)
+
+Read README.md file, and edit roles configuration to use correct credentials for MySQL required for the tooling website.
+
+ROLES -> MYSQL -> DEFAULTS -> MAIN.YML
+  
+![image](https://user-images.githubusercontent.com/40290711/141782913-198810e8-75a7-44f6-8e65-1e5a3bc2d593.png)
+  
+ Upload the changes into GitHub:
+
+``` 
+git add .
+git commit -m "Commit new role files into GitHub"
+git push --set-upstream origin roles-feature
+```  
+
+Create a Pull Request and merge it to the main branch on GitHub.
+
+## Load Balancer roles 
+  
+We want to be able to choose which Load Balancer to use, Nginx or Apache, so we need to have two roles respectively:
+
+Nginx
+Apache
+  
+Install the Nginx Ansible Role and rename the folder to nginx
+
+``` 
+ansible-galaxy install geerlingguy.nginx
+mv geerlingguy.nginx/ nginx
+```  
+
+Install the Apache Ansible Role and rename the folder to apache
+
+``` 
+ansible-galaxy install geerlingguy.apache 
+mv geerlingguy.apache/ apache
+``` 
+  
+- Since we cannot use both Nginx and Apache load balancer, we need to add a condition to enable either one - this is where we can make use of variables.
+
+- Declare a variable in defaults/main.yml file inside the Nginx and Apache roles. Name each variables enable_nginx_lb and enable_apache_lb respectively.
+
+- Set both values to false like this enable_nginx_lb: false and enable_apache_lb: false.
+  ``` 
+- Declare another variable in both roles load_balancer_is_required and set its value to false as well.
+
+- Update both assignment and site.yml files respectively. 
+  
+  loadbalancers.yml file is going to look like this (create this file in your static-assignments folder)
+  
+  ``` 
+  - hosts: lb
+  roles:
+    - { role: nginx, when: enable_nginx_lb and load_balancer_is_required }
+    - { role: apache, when: enable_apache_lb and load_balancer_is_required }
+  ``` 
+ 
+Add this to the site.yml file: 
+  
+``` 
+   - name: Loadbalancers assignment
+       hosts: lb
+         - import_playbook: ../static-assignments/loadbalancers.yml
+        when: load_balancer_is_required 
+ ``` 
+
+Now we can make use of env-vars\uat.yml file to define which loadbalancer to use in UAT the environment by setting the respective environmental variable to true.
+
+We will activate load balancer, and enable nginx by setting these in the respective environment’s env-vars file:
+  
+ ``` 
+enable_nginx_lb: true
+load_balancer_is_required: true
+ ``` 
+  
+The same must work with apache LB, so we can switch it by setting respective environmental variable to true and other to false.
+
+To test this, we can update inventory for each environment and run Ansible against each environment. 
