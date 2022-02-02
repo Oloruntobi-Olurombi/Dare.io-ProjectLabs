@@ -1,2 +1,2 @@
 # DevOps Projects
-This is my Lab and Project space for Darey.io 
+This is my Lab and Project space for Darey.io for DevOps Project
